@@ -154,7 +154,7 @@ class GhostscriptWorker : public AsyncWorker
         res = 0;
         vector<string> explodedCmd;
         istringstream iss(RAWcmd);
-        for (string RAWcmd; iss >> RAWcmd;)
+        for (string RAWcmd; iss >> std::quoted(RAWcmd);)
             explodedCmd.push_back(RAWcmd);
         int gsargc = static_cast<int>(explodedCmd.size());
         char **gsargv = new char *[gsargc];
@@ -243,7 +243,7 @@ NAN_METHOD(ExecuteSync)
     string RAWcmd = *String::Utf8Value(JScmd);  
     vector<string> explodedCmd;
     istringstream iss(RAWcmd);
-    for (string RAWcmd; iss >> RAWcmd;)
+    for (string RAWcmd; iss >> std::quoted(RAWcmd);)
         explodedCmd.push_back(RAWcmd);
     int gsargc = static_cast<int>(explodedCmd.size());
     char **gsargv = new char *[gsargc];

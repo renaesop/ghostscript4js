@@ -29,6 +29,7 @@
 #define GSDLLEXPORT __declspec(dllimport)
 #endif
 
+#include <iomanip>
 #include <sstream>
 #include <string>
 #include <mutex>
