@@ -58,7 +58,8 @@
         }],
         ['OS=="mac"', {
           'xcode_settings': {
-            'GCC_ENABLE_CPP_EXCEPTIONS': 'YES'
+            'GCC_ENABLE_CPP_EXCEPTIONS': 'YES',
+            'OTHER_CPLUSPLUSFLAGS' : ['-std=c++14','-stdlib=libc++']
           },
           'variables': {
             "GS4JS_HOME%": "<!(echo $GS4JS_HOME)",
